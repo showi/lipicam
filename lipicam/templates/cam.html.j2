@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  {% include "header.html" %}
+  {% include "header.html.j2" %}
   <script src="/static/js/cam.js"></script>
 </head>
 
 <body onload="lipicam.init()">
   <div class="container">
-    {% include "nav.html" %}
+    {% include "nav.html.j2" %}
     <div class="card text-center" style="heigth:90 %">
       <img class="card-img-top" src="static/img/anger.svg" alt="anger" width="16px">
       <div class="card-block">
@@ -18,7 +18,7 @@
     </div>
 
   </div>
-  {% include "footer.html" %}
+  {% include "footer.html.j2" %}
 </body>
 
 </html>
