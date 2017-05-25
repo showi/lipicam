@@ -1,0 +1,17 @@
+---
+- hosts: piw
+  vars:
+    install_dir: /home/pi/install
+    python_version: 2.7
+    python: python{{python_version}}
+    main_python_path: /usr/bin/{{python}}
+    python_path: "{{main_python_path}}"
+    pip: pip{{python_version}}
+    pip_path: "/usr/local/bin/{{pip}}"
+    lipicam_src: "{{role_path}}/../../../"
+  remote_user: pi
+  roles:
+    - name: pip
+      tags: install
+    - name: lipicam
+      tags: install

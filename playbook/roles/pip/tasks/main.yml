@@ -1,0 +1,10 @@
+- name: install {{python}}
+  apt: name={{python}} state=latest
+  become: yes
+- name: create install directory
+  file: path={{install_dir}} state=directory
+- name: get pip
+  get_url: url=https://bootstrap.pypa.io/get-pip.py dest={{install_dir}}
+- name: instal pip
+  command: "{{python_path}} {{install_dir}}/get-pip.py"
+  become: yes

@@ -1,0 +1,27 @@
+- name: copy lipicam requirements
+  copy:
+    src: "{{role_path}}/../../../requirements.txt"
+    dest: "{{install_dir}}/"
+  tags: code
+- name: Install requirements
+  pip:
+    requirements: "{{install_dir}}/requirements.txt"
+    executable: "{{pip_path}}"
+    # virtualenv: "{{install_dir}}/venv"
+    # virtualenv_command: "{{main_python_path}} -m venv --upgrade --without-pip {{install_dir}}/venv"
+  become: true
+  tags: code
+- name: create lipicam directory
+  file: path={{install_dir}}/lipicam state=directory
+  tags: code
+- name: copy lipicam code
+  copy:
+    src: "{{role_path}}/../../../lipicam/"
+    dest: "{{install_dir}}/lipicam/lipicam"
+  tags: code, dev
+- name: Copy start script
+  template:
+    src: start.sh
+    dest: "{{install_dir}}/"
+    mode: 0744
+  tags: code, dev

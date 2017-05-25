@@ -1,0 +1,6 @@
+[piw]
+  <host01>
+
+[piw:vars]
+  ansible_connection=ssh
+  ansible_user=pi

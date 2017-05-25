@@ -1,0 +1,2 @@
+- name: command
+  pip: name=flask executable={{pip}}

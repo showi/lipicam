@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+  {% include "header.html" %}
+  <script src="/static/js/cam.js"></script>
+</head>
+
+<body onload="lipicam.init()">
+  <div class="container">
+    {% include "nav.html" %}
+    <div class="card text-center" style="heigth:90 %">
+      <img class="card-img-top" src="static/img/anger.svg" alt="anger" width="16px">
+      <div class="card-block">
+        <img id="cam" src="/cam/stream?timestamp=0" title="cam stream"></image>
+      </div>
+      <button id="cam-action" type="button" class="btn btn-primary" onclick="lipicam.toggle()">pending</button>
+    </div>
+
+  </div>
+  {% include "footer.html" %}
+</body>
+
+</html>
